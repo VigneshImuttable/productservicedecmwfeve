@@ -52,13 +52,13 @@ public class FakeStoreProductService implements ProductService{
 
 
     @Override
-    public Product deleteProduct(Long id){
+    public void deleteProduct(Long id){
         FakeStoreProductDto productDto =  restTemplate.getForObject("https://fakestoreapi.com/products/" + id, FakeStoreProductDto.class);
-        return convertFakeStoreProductToProduct(productDto);
+        return;
     }
 
     @Override
-    public Product addnewProduct(FakeStoreProductDto productDto){
+    public Product addnewProduct(Product product){
         return new Product();
     }
 

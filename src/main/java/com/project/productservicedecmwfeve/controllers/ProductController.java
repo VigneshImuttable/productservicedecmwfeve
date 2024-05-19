@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -36,11 +37,10 @@ public class ProductController {
         return productService.getSingleProduct(id);
     }
 
-    @PostMapping()
-    public Product addNewProduct(@RequestBody Product product) {
-        Product p = new Product();
-        p.setTitle("A new product");
-        return p;
+    @PostMapping("/addProduct")
+    public Product addNewProduct(@RequestBody @Validated Product product) {
+
+        return productService.addnewProduct(product);
     }
 
     @PatchMapping("/{id}")

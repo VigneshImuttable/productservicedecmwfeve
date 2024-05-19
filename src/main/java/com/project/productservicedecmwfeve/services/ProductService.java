@@ -11,11 +11,12 @@ public interface ProductService {
 
     ResponseEntity<Product> getSingleProduct(Long id) throws ProductNotExistException;;
 
-    Product deleteProduct(Long id);
+    void deleteProduct(Long id);
 
-    Product addnewProduct(FakeStoreProductDto productDto);
+    Product addnewProduct(Product product);
 
     List<Product> getAllProducts();
 
     Product replaceProduct(Long id, Product product);
+
 }
